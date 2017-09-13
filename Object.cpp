@@ -1,12 +1,19 @@
+#include "WorldManager.h"
+
 #include "Object.h"
 
 df::Object::Object()
 {
 	m_position = Vector();
+
+	// Add self to game world.
+	WM.insertObject(this);
 }
 
 df::Object::~Object()
 {
+	// Remove self from game world.
+	WM.removeObject(this);
 }
 
 void df::Object::setId(int newId)
@@ -37,4 +44,9 @@ void df::Object::setPosition(Vector newPos)
 df::Vector df::Object::getPosition() const
 {
 	return m_position;
+}
+
+int df::Object::eventHandler(const Event * p_event)
+{
+	return 0;
 }

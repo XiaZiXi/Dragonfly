@@ -1,6 +1,9 @@
 #include <Windows.h>
 
+#include "WorldManager.h"
 #include "LogManager.h"
+
+#include "EventStep.h"
 #include "Clock.h"
 #include "GameManager.h"
 
@@ -10,6 +13,7 @@ df::GameManager::GameManager()
 
 	m_gameOver = false;
 	m_frameTime = FRAME_TIME_DEFAULT;
+	m_loopCount = 0;
 }
 
 df::GameManager::GameManager(GameManager const &) {}
@@ -27,6 +31,7 @@ int df::GameManager::startUp()
 	Manager::startUp();
 	LM.startUp();
 	LM.writeLog("GameManager::startUp(): Starting up the Game Manager!");
+	WM.startUp();
 
 	timeBeginPeriod(1);
 	return 0;
@@ -34,10 +39,10 @@ int df::GameManager::startUp()
 
 void df::GameManager::shutDown()
 {
-
 	timeEndPeriod(1);
 	setGameOver();
 
+	WM.shutDown();
 	LM.writeLog("GameManager::shutDown(): Shutting down the Game Manager.");
 	LM.shutDown();
 	Manager::shutDown();
@@ -50,11 +55,22 @@ void df::GameManager::run()
 	{
 		clock.delta();
 		// Get Input.
-		// Update World State.
+
+		// Send step event to all objects.
+		ObjectList allObjects = WM.getAllObjects();
+		EventStep step(m_loopCount);
+		ObjectListIterator iter(&allObjects);
+		for (iter.first(); !iter.isDone(); iter.next())
+		{
+			iter.currentObject()->eventHandler(&step);
+		}
+
+		WM.update();
 		// Draw to Back Buffer.
 		// Swap Buffers.
 		long loopTime = clock.split() / 1000; // Convert from microseconds to milliseconds.
 		Sleep(m_frameTime - loopTime);
+		m_loopCount++;
 	}
 }
 

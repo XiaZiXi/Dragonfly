@@ -2,7 +2,7 @@
 
 df::ObjectListIterator::ObjectListIterator() {}
 
-df::ObjectListIterator::ObjectListIterator(const ObjectList * p_list)
+df::ObjectListIterator::ObjectListIterator(const ObjectList *p_list)
 {
 	m_p_list = p_list;
 	first();

@@ -16,6 +16,7 @@ private:
 
 	bool m_gameOver;	// If true, then game loop should stop.
 	int m_frameTime;	// Target time per game loop, in milliseconds.
+	int m_loopCount;	// Number of time the game loop has been run.
 
 public:
 	// Get the singleton instance of the GameManager.

@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "Event.h"
 #include "Vector.h"
 
 namespace df {
@@ -29,5 +30,9 @@ public:
 	// Get/Set position of Object.
 	void setPosition(Vector newPos);
 	Vector getPosition() const;
+
+	// Handle event (default is to ignore everythin).
+	// Return 0 if ignored, else 1 if handled.
+	virtual int eventHandler(const Event *p_event);
 };
 }
