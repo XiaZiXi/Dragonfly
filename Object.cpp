@@ -1,10 +1,14 @@
+#include "LogManager.h"
 #include "WorldManager.h"
 
 #include "Object.h"
 
 df::Object::Object()
 {
-	m_position = Vector();
+	m_position = Vector(0, 0);
+	// Sets the unique id.
+	setId(uid);
+	uid++;
 
 	// Add self to game world.
 	WM.insertObject(this);

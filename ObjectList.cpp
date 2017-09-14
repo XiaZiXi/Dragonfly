@@ -1,3 +1,5 @@
+#include "LogManager.h"
+
 #include "ObjectList.h"
 
 df::ObjectList::ObjectList()
@@ -21,7 +23,7 @@ int df::ObjectList::remove(Object *p_obj)
 {
 	for (int i = 0; i < m_count; i++)
 	{
-		if (m_p_obj[i]->getId() == p_obj->getId())
+		if (m_p_obj[i] == p_obj)
 		{
 			for (int j = i; j < m_count - 1; j++)
 			{
@@ -31,6 +33,7 @@ int df::ObjectList::remove(Object *p_obj)
 			return 0; // Found.
 		}
 	}
+	LM.writeLog("ObjectList::remove(): Could not find Object.");
 	return -1; // Not found.
 }
 

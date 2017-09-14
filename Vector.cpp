@@ -1,5 +1,7 @@
 #include <math.h>
 
+#include "LogManager.h"
+
 #include "Vector.h"
 
 df::Vector::Vector(float initX, float initY)
@@ -8,7 +10,11 @@ df::Vector::Vector(float initX, float initY)
 	m_y = initY;
 }
 
-df::Vector::Vector() : Vector(0, 0) {}
+df::Vector::Vector()
+{
+	m_x = 0;
+	m_y = 0;
+}
 
 void df::Vector::setX(float newX)
 {

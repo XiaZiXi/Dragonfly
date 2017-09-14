@@ -6,6 +6,8 @@
 #include "Vector.h"
 
 namespace df {
+static int uid = 0;
+
 class Object {
 private:
 	int m_id;			// Unique game engine defined identifier.

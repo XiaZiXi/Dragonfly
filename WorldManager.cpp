@@ -50,17 +50,19 @@ int df::WorldManager::insertObject(Object *p_obj)
 
 int df::WorldManager::removeObject(Object *p_obj)
 {
-	return m_updates.remove(p_obj);
+	bool status = m_updates.remove(p_obj);
+	return status;
 }
 
 df::ObjectList df::WorldManager::getAllObjects() const
 {
+	LM.writeLog("WorldManager::getAllObjects(): Object count: %d", m_updates.getCount());
 	return m_updates;
 }
 
 df::ObjectList df::WorldManager::objectsOfType(std::string type) const
 {
-	ObjectList objectsOfType = ObjectList();
+	ObjectList objectsOfType;
 	ObjectListIterator iter(&m_updates);
 	for (iter.first(); !iter.isDone(); iter.next())
 	{

@@ -4,9 +4,9 @@
 
 #include "Event.h"
 
+namespace df {
 const std::string STEP_EVENT = "df::step";
 
-namespace df {
 class EventStep : public Event {
 private:
 	int m_stepCount; // Iteration number of game loop.

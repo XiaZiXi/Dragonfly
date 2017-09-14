@@ -135,6 +135,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectList.h" />
     <ClInclude Include="ObjectListIterator.h" />
+    <ClInclude Include="TestObject.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="WorldManager.h" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectList.cpp" />
     <ClCompile Include="ObjectListIterator.cpp" />
+    <ClCompile Include="TestObject.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="WorldManager.cpp" />
   </ItemGroup>

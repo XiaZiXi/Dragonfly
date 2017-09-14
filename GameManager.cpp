@@ -54,6 +54,7 @@ void df::GameManager::run()
 	while (!m_gameOver)
 	{
 		clock.delta();
+		LM.writeLog("\nGameManager::run(): Running Game Loop number %d.", m_loopCount);
 		// Get Input.
 
 		// Send step event to all objects.
@@ -65,6 +66,20 @@ void df::GameManager::run()
 			iter.currentObject()->eventHandler(&step);
 		}
 
+		// Remove Objects after a few loops.
+		if (m_loopCount > 0 && m_loopCount % 10 == 0)
+		{
+			if (allObjects.getCount() > 0)
+			{
+				iter.first();
+				WM.markForDelete(iter.currentObject());
+			}
+			else
+			{
+				setGameOver();
+			}
+		}
+
 		WM.update();
 		// Draw to Back Buffer.
 		// Swap Buffers.
@@ -72,6 +87,7 @@ void df::GameManager::run()
 		Sleep(m_frameTime - loopTime);
 		m_loopCount++;
 	}
+	LM.writeLog("\nGameManager::run(): Game Over after %d loops.", m_loopCount - 1);
 }
 
 void df::GameManager::setGameOver(bool gameOver)

@@ -3,9 +3,9 @@
 #include "Object.h"
 #include "ObjectListIterator.h"
 
+namespace df {
 const int MAX_OBJECTS = 5000;
 
-namespace df {
 // Forward Declarations.
 class ObjectListIterator;
 
