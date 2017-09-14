@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 
+#include "Event.h"
+
 namespace df {
 class Manager {
 private:
@@ -27,5 +29,9 @@ public:
 
 	// Return true when startUp() was executed ok, else false.
 	bool isStarted() const;
+
+	// Send event to all Objects.
+	// Return count of number of events sent.
+	int onEvent(const Event *p_event) const;
 };
 }

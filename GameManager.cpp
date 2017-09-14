@@ -58,15 +58,12 @@ void df::GameManager::run()
 		// Get Input.
 
 		// Send step event to all objects.
-		ObjectList allObjects = WM.getAllObjects();
 		EventStep step(m_loopCount);
-		ObjectListIterator iter(&allObjects);
-		for (iter.first(); !iter.isDone(); iter.next())
-		{
-			iter.currentObject()->eventHandler(&step);
-		}
+		onEvent(&step);
 
 		// Remove Objects after a few loops.
+		ObjectList allObjects = WM.getAllObjects();
+		ObjectListIterator iter(&allObjects);
 		if (m_loopCount > 0 && m_loopCount % 10 == 0)
 		{
 			if (allObjects.getCount() > 0)
