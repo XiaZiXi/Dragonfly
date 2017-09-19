@@ -11,14 +11,15 @@ namespace df {
 
 class LogManager : public Manager {
 private:
-	LogManager();						// Private since a singleton.
-	LogManager(LogManager const &);		// Don't allow copy.
-	void operator=(LogManager const &);	// Don't allow assignment.
+	LogManager();	// Private since a singleton.
 
 	bool m_doFlush;	// True if flush to disk after each write.
 	FILE *m_p_file;	// Pointer to logfile struct.
 
 public:
+	LogManager(LogManager const &copy) = delete;		// Don't allow copy.
+	void operator=(LogManager const &assign) = delete;	// Don't allow assignment.
+
 	// If logfile is open, close it.
 	~LogManager();
 

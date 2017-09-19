@@ -10,15 +10,16 @@ namespace df {
 
 class GameManager : public Manager {
 private:
-	GameManager();							// Private since a singleton.
-	GameManager(GameManager const &);		// Don't allow copy.
-	void operator=(GameManager const &);	// Don't allow assignment.
+	GameManager();		// Private since a singleton.
 
 	bool m_gameOver;	// If true, then game loop should stop.
 	int m_frameTime;	// Target time per game loop, in milliseconds.
 	int m_loopCount;	// Number of time the game loop has been run.
 
 public:
+	GameManager(GameManager const &copy) = delete;		// Don't allow copy.
+	void operator=(GameManager const &assign) = delete;	// Don't allow assignment.
+
 	// Get the singleton instance of the GameManager.
 	static GameManager &getInstance();
 

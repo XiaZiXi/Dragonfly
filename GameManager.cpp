@@ -16,10 +16,6 @@ df::GameManager::GameManager()
 	m_loopCount = 0;
 }
 
-df::GameManager::GameManager(GameManager const &) {}
-
-void df::GameManager::operator=(GameManager const &) {}
-
 df::GameManager &df::GameManager::getInstance()
 {
 	static GameManager gameManager;

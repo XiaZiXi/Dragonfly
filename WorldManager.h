@@ -8,14 +8,15 @@ namespace df {
 
 class WorldManager : public Manager {
 private:
-	WorldManager();							// Private since a singleton.
-	WorldManager(WorldManager const&);		// Don't allow copy.
-	void operator=(WorldManager const&);	// Don't allow assignment.
+	WorldManager();			// Private since a singleton.
 
 	ObjectList m_updates;	// All Objects in world to update.
 	ObjectList m_deletions;	// All Objects in world to delete.
 
 public:
+	WorldManager(WorldManager const&) = delete;		// Don't allow copy.
+	void operator=(WorldManager const&) = delete;	// Don't allow assignment.
+
 	// Get the singleton instance of the WorldManager.
 	static WorldManager &getInstance();
 

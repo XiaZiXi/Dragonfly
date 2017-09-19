@@ -10,10 +10,6 @@ df::LogManager::LogManager()
 	m_p_file = NULL;
 }
 
-df::LogManager::LogManager(LogManager const &) {}
-
-void df::LogManager::operator=(LogManager const &) {}
-
 df::LogManager::~LogManager()
 {
 }

@@ -19,9 +19,7 @@ const std::string FONT_FILE_DEFAULT = "df-font.ttf";
 
 class DisplayManager : public Manager {
 private:
-	DisplayManager();						// Private since a singleton.
-	DisplayManager(DisplayManager const &);	// Don't allow copy.
-	void operator=(DisplayManager const &);	// Don't allow assignment
+	DisplayManager();				// Private since a singleton.
 
 	sf::Font m_font;				// Font used for ASCII graphics.
 	sf::RenderWindow *m_p_window;	// Pointer to SFML window.
@@ -31,6 +29,9 @@ private:
 	int m_window_vertical_chars;	// Vertical ASCII spaces in window.
 
 public:
+	DisplayManager(DisplayManager const &copy) = delete;	// Don't allow copy.
+	void operator=(DisplayManager const &assign) = delete;	// Don't allow assignment
+
 	// Get the singleton instance of the DisplayManager.
 	static DisplayManager &getInstance();
 

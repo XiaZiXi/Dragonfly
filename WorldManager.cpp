@@ -10,10 +10,6 @@ df::WorldManager::WorldManager()
 	m_deletions = ObjectList();
 }
 
-df::WorldManager::WorldManager(WorldManager const &) {}
-
-void df::WorldManager::operator=(WorldManager const &) {}
-
 df::WorldManager & df::WorldManager::getInstance()
 {
 	static WorldManager worldManager;
