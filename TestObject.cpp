@@ -4,7 +4,7 @@
 
 #include "TestObject.h"
 
-TestObject::TestObject(int startX, int startY)
+TestObject::TestObject(float startX, float startY)
 {
 	df::Vector pos(startX, startY);
 	setPosition(pos);

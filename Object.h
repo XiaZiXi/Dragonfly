@@ -36,5 +36,8 @@ public:
 	// Handle event (default is to ignore everythin).
 	// Return 0 if ignored, else 1 if handled.
 	virtual int eventHandler(const Event *p_event);
+
+	// Empty virtual draw method which is overridden in children with special draw methods.
+	virtual void draw() {};
 };
 }

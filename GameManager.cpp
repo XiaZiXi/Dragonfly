@@ -2,6 +2,7 @@
 
 #include "WorldManager.h"
 #include "LogManager.h"
+#include "DisplayManager.h"
 
 #include "EventStep.h"
 #include "Clock.h"
@@ -74,8 +75,8 @@ void df::GameManager::run()
 		}
 
 		WM.update();
-		// Draw to Back Buffer.
-		// Swap Buffers.
+		WM.draw();
+		DM.swapBuffers();
 		long loopTime = clock.split() / 1000; // Convert from microseconds to milliseconds.
 		Sleep(m_frameTime - loopTime);
 		m_loopCount++;

@@ -5,7 +5,7 @@
 
 class TestObject : public df::Object {
 public:
-	TestObject(int startX, int startY);
+	TestObject(float startX, float startY);
 	~TestObject();
 
 	// Overload Event Handler.

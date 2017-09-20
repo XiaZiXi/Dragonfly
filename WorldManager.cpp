@@ -95,3 +95,13 @@ int df::WorldManager::markForDelete(Object *p_obj)
 	// Object not in list, so add.
 	return m_deletions.insert(p_obj);
 }
+
+void df::WorldManager::draw()
+{
+	ObjectListIterator iter(&m_updates);
+	for (iter.first(); !iter.isDone(); iter.next())
+	{
+		Object *p_tempObj = iter.currentObject();
+		p_tempObj->draw();
+	}
+}
