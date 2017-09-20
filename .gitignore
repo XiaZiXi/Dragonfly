@@ -51,3 +51,8 @@ Temporary Items
 *.tlog
 *.idb
 *.pdb
+*.ipch
+*.suo
+.vs/Dragonfly/v15/Browse.VC.db
+*.exe
+x64/Debug/Dragonfly.ilk
