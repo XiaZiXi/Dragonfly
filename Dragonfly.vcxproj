@@ -95,6 +95,10 @@
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-network-d.lib;sfml-audio-d.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SOLUTIONDIR)..\SFML-2.4.2\bin\*.dll" "$(TARGETDIR)"
+copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -130,7 +134,7 @@
     </Link>
     <PostBuildEvent>
       <Command>copy /Y "$(SOLUTIONDIR)..\SFML-2.4.2\bin\*.dll" "$(TARGETDIR)"
-copy /Y "$(SOLUTIONDIR)$(SOLUTIONNAME)\df-font.ttf" "$(TARGETDIR)"</Command>
+copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
