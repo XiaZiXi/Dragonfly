@@ -39,123 +39,123 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TestObject.h">
+    <ClInclude Include="Include\Color.h">
+      <Filter>Header Files\Enums\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Justification.h">
+      <Filter>Header Files\Enums\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Key.h">
+      <Filter>Header Files\Enums\Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\KeyboardAction.h">
+      <Filter>Header Files\Enums\Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Button.h">
+      <Filter>Header Files\Enums\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\MouseAction.h">
+      <Filter>Header Files\Enums\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Event.h">
+      <Filter>Header Files\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EventKeyboard.h">
+      <Filter>Header Files\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EventMouse.h">
+      <Filter>Header Files\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EventStep.h">
+      <Filter>Header Files\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\DisplayManager.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\GameManager.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\InputManager.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\LogManager.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Manager.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\WorldManager.h">
+      <Filter>Header Files\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Object.h">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ObjectList.h">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ObjectListIterator.h">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Clock.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Vector.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\TestObject.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Header Files\Enums\Mouse</Filter>
-    </ClInclude>
-    <ClInclude Include="Key.h">
-      <Filter>Header Files\Enums\Keyboard</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyboardAction.h">
-      <Filter>Header Files\Enums\Keyboard</Filter>
-    </ClInclude>
-    <ClInclude Include="MouseAction.h">
-      <Filter>Header Files\Enums\Mouse</Filter>
-    </ClInclude>
-    <ClInclude Include="Event.h">
-      <Filter>Header Files\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="EventKeyboard.h">
-      <Filter>Header Files\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="EventMouse.h">
-      <Filter>Header Files\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="EventStep.h">
-      <Filter>Header Files\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager.h">
-      <Filter>Header Files\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="DisplayManager.h">
-      <Filter>Header Files\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="GameManager.h">
-      <Filter>Header Files\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="InputManager.h">
-      <Filter>Header Files\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="LogManager.h">
-      <Filter>Header Files\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="WorldManager.h">
-      <Filter>Header Files\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>Header Files\Enums\Display</Filter>
-    </ClInclude>
-    <ClInclude Include="Justification.h">
-      <Filter>Header Files\Enums\Display</Filter>
-    </ClInclude>
-    <ClInclude Include="Clock.h">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector.h">
-      <Filter>Header Files\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Header Files\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectList.h">
-      <Filter>Header Files\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectListIterator.h">
-      <Filter>Header Files\Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Manager.cpp">
+    <ClCompile Include="Source\Clock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LogManager.cpp">
+    <ClCompile Include="Source\DisplayManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="game.cpp">
+    <ClCompile Include="Source\Event.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Clock.cpp">
+    <ClCompile Include="Source\EventKeyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameManager.cpp">
+    <ClCompile Include="Source\EventMouse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vector.cpp">
+    <ClCompile Include="Source\EventStep.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
+    <ClCompile Include="Source\GameManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectList.cpp">
+    <ClCompile Include="Source\InputManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectListIterator.cpp">
+    <ClCompile Include="Source\LogManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Event.cpp">
+    <ClCompile Include="Source\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EventStep.cpp">
+    <ClCompile Include="Source\Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WorldManager.cpp">
+    <ClCompile Include="Source\ObjectList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestObject.cpp">
+    <ClCompile Include="Source\ObjectListIterator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DisplayManager.cpp">
+    <ClCompile Include="Source\TestObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InputManager.cpp">
+    <ClCompile Include="Source\Vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EventKeyboard.cpp">
+    <ClCompile Include="Source\WorldManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EventMouse.cpp">
+    <ClCompile Include="Source\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

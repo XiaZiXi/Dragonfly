@@ -76,10 +76,10 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\SFML-2.4.2\include;%(AdditionalIncludeDirectories);.\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-network-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -89,11 +89,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\SFML-2.4.2\include;%(AdditionalIncludeDirectories);.\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-network-d.lib;sfml-audio-d.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -104,7 +104,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\SFML-2.4.2\include;%(AdditionalIncludeDirectories);.\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -120,57 +120,61 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\SFML-2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\SFML-2.4.2\include;%(AdditionalIncludeDirectories);.\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>winmm.lib;sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-network.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SFML-2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SOLUTIONDIR)..\SFML-2.4.2\bin\*.dll" "$(TARGETDIR)"
+copy /Y "$(SOLUTIONDIR)$(SOLUTIONNAME)\df-font.ttf" "$(TARGETDIR)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Button.h" />
-    <ClInclude Include="Clock.h" />
-    <ClInclude Include="Color.h" />
-    <ClInclude Include="DisplayManager.h" />
-    <ClInclude Include="Event.h" />
-    <ClInclude Include="EventKeyboard.h" />
-    <ClInclude Include="EventMouse.h" />
-    <ClInclude Include="EventStep.h" />
-    <ClInclude Include="GameManager.h" />
-    <ClInclude Include="InputManager.h" />
-    <ClInclude Include="Justification.h" />
-    <ClInclude Include="Key.h" />
-    <ClInclude Include="KeyboardAction.h" />
-    <ClInclude Include="LogManager.h" />
-    <ClInclude Include="Manager.h" />
-    <ClInclude Include="MouseAction.h" />
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="ObjectList.h" />
-    <ClInclude Include="ObjectListIterator.h" />
-    <ClInclude Include="TestObject.h" />
-    <ClInclude Include="Vector.h" />
-    <ClInclude Include="WorldManager.h" />
+    <ClInclude Include="Include\Button.h" />
+    <ClInclude Include="Include\Clock.h" />
+    <ClInclude Include="Include\Color.h" />
+    <ClInclude Include="Include\DisplayManager.h" />
+    <ClInclude Include="Include\Event.h" />
+    <ClInclude Include="Include\EventKeyboard.h" />
+    <ClInclude Include="Include\EventMouse.h" />
+    <ClInclude Include="Include\EventStep.h" />
+    <ClInclude Include="Include\GameManager.h" />
+    <ClInclude Include="Include\InputManager.h" />
+    <ClInclude Include="Include\Justification.h" />
+    <ClInclude Include="Include\Key.h" />
+    <ClInclude Include="Include\KeyboardAction.h" />
+    <ClInclude Include="Include\LogManager.h" />
+    <ClInclude Include="Include\Manager.h" />
+    <ClInclude Include="Include\MouseAction.h" />
+    <ClInclude Include="Include\Object.h" />
+    <ClInclude Include="Include\ObjectList.h" />
+    <ClInclude Include="Include\ObjectListIterator.h" />
+    <ClInclude Include="Include\TestObject.h" />
+    <ClInclude Include="Include\Vector.h" />
+    <ClInclude Include="Include\WorldManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Clock.cpp" />
-    <ClCompile Include="DisplayManager.cpp" />
-    <ClCompile Include="Event.cpp" />
-    <ClCompile Include="EventKeyboard.cpp" />
-    <ClCompile Include="EventMouse.cpp" />
-    <ClCompile Include="EventStep.cpp" />
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="LogManager.cpp" />
-    <ClCompile Include="Manager.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="ObjectList.cpp" />
-    <ClCompile Include="ObjectListIterator.cpp" />
-    <ClCompile Include="TestObject.cpp" />
-    <ClCompile Include="Vector.cpp" />
-    <ClCompile Include="WorldManager.cpp" />
+    <ClCompile Include="Source\Clock.cpp" />
+    <ClCompile Include="Source\DisplayManager.cpp" />
+    <ClCompile Include="Source\Event.cpp" />
+    <ClCompile Include="Source\EventKeyboard.cpp" />
+    <ClCompile Include="Source\EventMouse.cpp" />
+    <ClCompile Include="Source\EventStep.cpp" />
+    <ClCompile Include="Source\game.cpp" />
+    <ClCompile Include="Source\GameManager.cpp" />
+    <ClCompile Include="Source\InputManager.cpp" />
+    <ClCompile Include="Source\LogManager.cpp" />
+    <ClCompile Include="Source\Manager.cpp" />
+    <ClCompile Include="Source\Object.cpp" />
+    <ClCompile Include="Source\ObjectList.cpp" />
+    <ClCompile Include="Source\ObjectListIterator.cpp" />
+    <ClCompile Include="Source\TestObject.cpp" />
+    <ClCompile Include="Source\Vector.cpp" />
+    <ClCompile Include="Source\WorldManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
