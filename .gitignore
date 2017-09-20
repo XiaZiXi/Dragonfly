@@ -54,5 +54,8 @@ Temporary Items
 *.ipch
 *.suo
 .vs/Dragonfly/v15/Browse.VC.db
+*.opendb
 *.exe
 x64/Debug/Dragonfly.ilk
+Makefile
+README.txt
