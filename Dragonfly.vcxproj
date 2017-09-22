@@ -146,6 +146,7 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClInclude Include="Include\EventCollision.h" />
     <ClInclude Include="Include\EventKeyboard.h" />
     <ClInclude Include="Include\EventMouse.h" />
+    <ClInclude Include="Include\EventOut.h" />
     <ClInclude Include="Include\EventStep.h" />
     <ClInclude Include="Include\GameManager.h" />
     <ClInclude Include="Include\InputManager.h" />
@@ -171,6 +172,7 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClCompile Include="Source\EventCollision.cpp" />
     <ClCompile Include="Source\EventKeyboard.cpp" />
     <ClCompile Include="Source\EventMouse.cpp" />
+    <ClCompile Include="Source\EventOut.cpp" />
     <ClCompile Include="Source\EventStep.cpp" />
     <ClCompile Include="Source\game.cpp" />
     <ClCompile Include="Source\GameManager.cpp" />

@@ -1,7 +1,9 @@
 #include "LogManager.h"
+#include "DisplayManager.h"
 
 #include "Utility.h"
 #include "EventCollision.h"
+#include "EventOut.h"
 
 #include "WorldManager.h"
 
@@ -182,6 +184,24 @@ int df::WorldManager::moveObject(Object *p_object, Vector where)
 				return -1;
 			}
 		}
+	}
+
+	// Check for out of bounds.
+	// If it is already out of bounds, don't send Out Event.
+	if ((p_object->getPosition().getX() >= 0 &&
+		p_object->getPosition().getX() < DM.getHorizontal() &&
+		p_object->getPosition().getY() >= 0 &&
+		p_object->getPosition().getY() < DM.getVertical())
+		&&
+		(where.getX() < 0 ||
+		where.getX() >= DM.getHorizontal() ||
+		where.getY() < 0 ||
+		where.getY() >= DM.getVertical())
+		)
+	{
+		// Generate out of bounds event and send to Object.
+		EventOut out = EventOut();
+		p_object->eventHandler(&out);
 	}
 
 	// If here, no collision between two HARD objects, so allow move.
