@@ -143,6 +143,7 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClInclude Include="Include\Color.h" />
     <ClInclude Include="Include\DisplayManager.h" />
     <ClInclude Include="Include\Event.h" />
+    <ClInclude Include="Include\EventCollision.h" />
     <ClInclude Include="Include\EventKeyboard.h" />
     <ClInclude Include="Include\EventMouse.h" />
     <ClInclude Include="Include\EventStep.h" />
@@ -157,7 +158,9 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClInclude Include="Include\Object.h" />
     <ClInclude Include="Include\ObjectList.h" />
     <ClInclude Include="Include\ObjectListIterator.h" />
+    <ClInclude Include="Include\Solidness.h" />
     <ClInclude Include="Include\TestObject.h" />
+    <ClInclude Include="Include\Utility.h" />
     <ClInclude Include="Include\Vector.h" />
     <ClInclude Include="Include\WorldManager.h" />
   </ItemGroup>
@@ -165,6 +168,7 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClCompile Include="Source\Clock.cpp" />
     <ClCompile Include="Source\DisplayManager.cpp" />
     <ClCompile Include="Source\Event.cpp" />
+    <ClCompile Include="Source\EventCollision.cpp" />
     <ClCompile Include="Source\EventKeyboard.cpp" />
     <ClCompile Include="Source\EventMouse.cpp" />
     <ClCompile Include="Source\EventStep.cpp" />
@@ -177,6 +181,7 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClCompile Include="Source\ObjectList.cpp" />
     <ClCompile Include="Source\ObjectListIterator.cpp" />
     <ClCompile Include="Source\TestObject.cpp" />
+    <ClCompile Include="Source\Utility.cpp" />
     <ClCompile Include="Source\Vector.cpp" />
     <ClCompile Include="Source\WorldManager.cpp" />
   </ItemGroup>

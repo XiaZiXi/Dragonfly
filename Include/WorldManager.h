@@ -48,5 +48,17 @@ public:
 
 	// Draw all objects.
 	void draw();
+
+	// Return list of Objects collided with at poistion 'where'.
+	// Collisions only with solid Objects.
+	// Does not consider if p_object is solid or not.
+	ObjectList isCollision(Object *p_object, Vector where) const;
+
+	// Move Object.
+	// If collision with solid, send collision events.
+	// If no collision with solid, move ok else don't move Object.
+	// If Object is Spectral, move ok.
+	// Return - if move ok, else -1 if collision with solid.
+	int moveObject(Object *p_object, Vector where);
 };
 }

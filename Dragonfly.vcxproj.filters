@@ -37,6 +37,9 @@
     <Filter Include="Header Files\Object">
       <UniqueIdentifier>{578e3646-886e-448b-a012-4bacaed9033d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Enums\Object">
+      <UniqueIdentifier>{8cc1ad3d-6d39-4e98-9dcb-228c106371a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Color.h">
@@ -105,6 +108,15 @@
     <ClInclude Include="Include\TestObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Utility.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Solidness.h">
+      <Filter>Header Files\Enums\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EventCollision.h">
+      <Filter>Header Files\Event</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Clock.cpp">
@@ -156,6 +168,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EventCollision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -71,3 +71,13 @@ df::Vector df::Vector::operator+(const Vector & other) const
 	v.m_y = m_y + other.m_y;	// Add y components.
 	return v;
 }
+
+bool df::Vector::operator==(const Vector &other) const
+{
+	return getX() == other.getX() && getY() == other.getY();
+}
+
+bool df::Vector::operator!=(const Vector &other) const
+{
+	return !(*this == other);
+}

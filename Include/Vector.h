@@ -35,5 +35,11 @@ public:
 
 	// Add two Vectors, return new Vector.
 	Vector operator+(const Vector &other) const;
+
+	// Compare two Vectors to see if equal.
+	bool operator==(const Vector &other) const;
+
+	// Compare two Vectors to see if not equal.
+	bool operator!=(const Vector &other) const;
 };
 }

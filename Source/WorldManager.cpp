@@ -1,5 +1,8 @@
 #include "LogManager.h"
 
+#include "Utility.h"
+#include "EventCollision.h"
+
 #include "WorldManager.h"
 
 df::WorldManager::WorldManager() 
@@ -72,10 +75,23 @@ df::ObjectList df::WorldManager::objectsOfType(std::string type) const
 
 void df::WorldManager::update()
 {
-	ObjectListIterator iter(&m_deletions);
-	for (iter.first(); !iter.isDone(); iter.next())
+	ObjectListIterator updateIter(&m_updates);
+	for (updateIter.first(); !updateIter.isDone(); updateIter.next())
 	{
-		delete iter.currentObject();
+		Object *p_object = updateIter.currentObject();
+		Vector newPos = p_object->predictPosition();
+
+		// If Object should change position, then move.
+		if (newPos != p_object->getPosition())
+		{
+			p_object->setPosition(newPos);
+		}
+	}
+
+	ObjectListIterator deleteIter(&m_deletions);
+	for (deleteIter.first(); !deleteIter.isDone(); deleteIter.next())
+	{
+		delete deleteIter.currentObject();
 	}
 	m_deletions.clear();
 }
@@ -104,4 +120,72 @@ void df::WorldManager::draw()
 		Object *p_tempObj = iter.currentObject();
 		p_tempObj->draw();
 	}
+}
+
+df::ObjectList df::WorldManager::isCollision(Object *p_object, Vector where) const
+{
+	ObjectList collisionList = ObjectList();
+
+	// Iterate through all objects.
+	ObjectListIterator iter(&m_updates);
+
+	for (iter.first(); !iter.isDone(); iter.next())
+	{
+		Object *p_tempObj = iter.currentObject();
+		if (p_tempObj != p_object) // Do not consider self.
+		{
+			// Same location and both solid.
+			if (Utility::positionsIntersect(p_tempObj->getPosition(), where)
+				&& p_tempObj->isSolid())
+			{
+				collisionList.insert(p_tempObj);
+			}
+		}
+	}
+
+	return collisionList;
+}
+
+int df::WorldManager::moveObject(Object *p_object, Vector where)
+{
+	if (p_object->isSolid())
+	{
+		// Get collisions.
+		ObjectList list = isCollision(p_object, where);
+
+		if (!list.isEmpty())
+		{
+			bool doMove = true;
+
+			// Iterate over list.
+			ObjectListIterator iter(&list);
+			for (iter.first(); !iter.isDone(); iter.next())
+			{
+				Object *p_tempObj = iter.currentObject();
+
+				// Create collision event.
+				EventCollision collision(p_object, p_tempObj, where);
+
+				// Send to both objects.
+				p_object->eventHandler(&collision);
+				p_tempObj->eventHandler(&collision);
+
+				// If both HARD, then cannot move.
+				if (p_object->getSolidness() == HARD && p_tempObj->getSolidness() == HARD)
+				{
+					doMove = false;
+				}
+			}
+
+			if (!doMove)
+			{
+				return -1;
+			}
+		}
+	}
+
+	// If here, no collision between two HARD objects, so allow move.
+	p_object->setPosition(where);
+
+	return 0;
 }
