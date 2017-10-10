@@ -5,6 +5,7 @@
 #include "Color.h"
 #include "Vector.h"
 #include "Justification.h"
+#include "Frame.h"
 #include "Manager.h"
 
 namespace df {
@@ -52,6 +53,11 @@ public:
 	// Justified left, center, or right.
 	// Return 0 if ok, else -1.
 	int drawString(Vector pos, std::string str, Justification just, Color color) const;
+
+	// Draw single sprite frame at window location (x, y) with color.
+	// If centered true then center frame at (x, y).
+	// Return 0 if ok, else -1.
+	int drawFrame(Vector worldPos, Frame frame, bool centered, Color color) const;
 
 	// Compute character width/height, based on window size and font.
 	float charHeight() const;

@@ -57,7 +57,7 @@ int df::WorldManager::removeObject(Object *p_obj)
 
 df::ObjectList df::WorldManager::getAllObjects() const
 {
-	LM.writeLog("WorldManager::getAllObjects(): Object count: %d", m_updates.getCount());
+	//LM.writeLog("WorldManager::getAllObjects(): Object count: %d", m_updates.getCount());
 	return m_updates;
 }
 
@@ -86,7 +86,7 @@ void df::WorldManager::update()
 		// If Object should change position, then move.
 		if (newPos != p_object->getPosition())
 		{
-			p_object->setPosition(newPos);
+			moveObject(p_object, newPos);
 		}
 	}
 
@@ -181,17 +181,22 @@ int df::WorldManager::moveObject(Object *p_object, Vector where)
 
 			if (!doMove)
 			{
+				LM.writeLog("WorldManager::moveObject(): Did Not Move Object.");
 				return -1;
 			}
 		}
 	}
+	Vector originalPos = p_object->getPosition();
+
+	// If here, no collision between two HARD objects, so allow move.
+	p_object->setPosition(where);
 
 	// Check for out of bounds.
 	// If it is already out of bounds, don't send Out Event.
-	if ((p_object->getPosition().getX() >= 0 &&
-		p_object->getPosition().getX() < DM.getHorizontal() &&
-		p_object->getPosition().getY() >= 0 &&
-		p_object->getPosition().getY() < DM.getVertical())
+	if ((originalPos.getX() >= 0 &&
+		originalPos.getX() < DM.getHorizontal() &&
+		originalPos.getY() >= 0 &&
+		originalPos.getY() < DM.getVertical())
 		&&
 		(where.getX() < 0 ||
 		where.getX() >= DM.getHorizontal() ||
@@ -202,10 +207,8 @@ int df::WorldManager::moveObject(Object *p_object, Vector where)
 		// Generate out of bounds event and send to Object.
 		EventOut out = EventOut();
 		p_object->eventHandler(&out);
+		LM.writeLog("WorldManager::moveObject(): Out Event sent.");
 	}
-
-	// If here, no collision between two HARD objects, so allow move.
-	p_object->setPosition(where);
 
 	return 0;
 }

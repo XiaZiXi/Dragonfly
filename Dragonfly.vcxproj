@@ -148,6 +148,7 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClInclude Include="Include\EventMouse.h" />
     <ClInclude Include="Include\EventOut.h" />
     <ClInclude Include="Include\EventStep.h" />
+    <ClInclude Include="Include\Frame.h" />
     <ClInclude Include="Include\GameManager.h" />
     <ClInclude Include="Include\InputManager.h" />
     <ClInclude Include="Include\Justification.h" />
@@ -159,8 +160,12 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClInclude Include="Include\Object.h" />
     <ClInclude Include="Include\ObjectList.h" />
     <ClInclude Include="Include\ObjectListIterator.h" />
+    <ClInclude Include="Include\ResourceManager.h" />
     <ClInclude Include="Include\Solidness.h" />
+    <ClInclude Include="Include\Sprite.h" />
+    <ClInclude Include="Include\TestBoundaryObject.h" />
     <ClInclude Include="Include\TestObject.h" />
+    <ClInclude Include="Include\TestVelocityObject.h" />
     <ClInclude Include="Include\Utility.h" />
     <ClInclude Include="Include\Vector.h" />
     <ClInclude Include="Include\WorldManager.h" />
@@ -174,6 +179,7 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClCompile Include="Source\EventMouse.cpp" />
     <ClCompile Include="Source\EventOut.cpp" />
     <ClCompile Include="Source\EventStep.cpp" />
+    <ClCompile Include="Source\Frame.cpp" />
     <ClCompile Include="Source\game.cpp" />
     <ClCompile Include="Source\GameManager.cpp" />
     <ClCompile Include="Source\InputManager.cpp" />
@@ -182,7 +188,11 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClCompile Include="Source\Object.cpp" />
     <ClCompile Include="Source\ObjectList.cpp" />
     <ClCompile Include="Source\ObjectListIterator.cpp" />
+    <ClCompile Include="Source\ResourceManager.cpp" />
+    <ClCompile Include="Source\Sprite.cpp" />
+    <ClCompile Include="Source\TestBoundaryObject.cpp" />
     <ClCompile Include="Source\TestObject.cpp" />
+    <ClCompile Include="Source\TestVelocityObject.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
     <ClCompile Include="Source\Vector.cpp" />
     <ClCompile Include="Source\WorldManager.cpp" />

@@ -6,7 +6,7 @@ df::LogManager::LogManager()
 {
 	setType("LogManager");
 
-	m_doFlush = false;
+	m_doFlush = true;
 	m_p_file = NULL;
 }
 

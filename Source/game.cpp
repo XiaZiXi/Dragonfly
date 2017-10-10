@@ -1,6 +1,7 @@
 #include "GameManager.h"
 #include "LogManager.h"
 #include "WorldManager.h"
+#include "DisplayManager.h"
 
 #include "Vector.h"
 #include "Object.h"
@@ -8,12 +9,16 @@
 #include "ObjectListIterator.h"
 
 #include "TestObject.h"
+#include "TestVelocityObject.h"
+#include "TestBoundaryObject.h"
 
-#define DEBUG_LOG_MANAGER
-#define DEBUG_VECTOR
-#define DEBUG_OBJECT_LIST
-#define DEBUG_OBJECT_LIST_ITER
-#define DEBUG_TEST_OBJECT
+//#define DEBUG_LOG_MANAGER
+//#define DEBUG_VECTOR
+//#define DEBUG_OBJECT_LIST
+//#define DEBUG_OBJECT_LIST_ITER
+//#define DEBUG_TEST_OBJECT
+//#define DEBUG_HORIZ_VERT
+#define DEBUG_DRAW_STRING
 
 int main()
 {
@@ -21,6 +26,7 @@ int main()
 	{
 		return 0;
 	}
+	LM.writeLog("Manager startUp successful!");
 
 #ifdef DEBUG_LOG_MANAGER
 	LM.writeLog("\nTESTING LOG MANAGER");
@@ -136,6 +142,18 @@ int main()
 	GM.run();
 
 	LM.writeLog("TEST COMPLETE\n");
+#endif
+
+#ifdef DEBUG_HORIZ_VERT
+	LM.writeLog("Window Horizontal: %d", DM.getHorizontal());
+	LM.writeLog("Window Vertical: %d", DM.getVertical());
+#endif
+
+#ifdef DEBUG_DRAW_STRING
+	new TestObject(0, 5);
+	new TestVelocityObject();
+	new TestBoundaryObject();
+	GM.run();
 #endif
 
 	GM.shutDown();

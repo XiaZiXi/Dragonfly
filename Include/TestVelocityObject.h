@@ -3,16 +3,13 @@
 #include "Event.h"
 #include "Object.h"
 
-class TestObject : public df::Object {
+class TestVelocityObject : public df::Object {
 public:
-	TestObject(float startX, float startY);
-	~TestObject();
+	TestVelocityObject();
+	~TestVelocityObject();
 
 	// Overload Event Handler.
 	virtual int eventHandler(const df::Event *p_event);
-
-	// Handle Step Event.
-	void step();
 
 	// Handle Out Event.
 	void out();

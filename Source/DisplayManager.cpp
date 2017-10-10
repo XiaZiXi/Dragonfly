@@ -28,6 +28,11 @@ int df::DisplayManager::startUp()
 		return -1;
 	}
 
+	m_windowHorizontalChars = WINDOW_HORIZONTAL_CHARS_DEFAULT;
+	m_windowHorizontalPixels = WINDOW_HORIZONTAL_PIXELS_DEFAULT;
+	m_windowVerticalChars = WINDOW_VERTICAL_CHARS_DEFAULT;
+	m_windowVerticalPixels = WINDOW_VERTICAL_PIXELS_DEFAULT;
+
 	// Turn off mouse cursor for window.
 	m_p_window->setMouseCursorVisible(false);
 
@@ -41,6 +46,7 @@ int df::DisplayManager::startUp()
 		return -1;
 	}
 
+	LM.writeLog("DisplayManager::startUp(): Starting up the Display Manager!");
 	Manager::startUp();
 	return 0;
 }
@@ -120,6 +126,42 @@ int df::DisplayManager::drawString(Vector pos, std::string str, Justification ju
 	{
 		Vector tempPos(startingPos.getX() + i, startingPos.getY());
 		drawCh(tempPos, str[i], color);
+	}
+
+	return 0;
+}
+
+int df::DisplayManager::drawFrame(Vector worldPos, Frame frame, bool centered, Color color) const
+{
+	// Error check empty string.
+	if (frame.getString().empty())
+	{
+		LM.writeLog("DisplayManager::drawFrame(): ERROR! Frame string is empty.");
+		return -1;
+	}
+
+	int xOffset = 0;
+	int yOffset = 0;
+
+	// Centered? Then offset (x, y) by 1/2 (width, height).
+	if (centered)
+	{
+		xOffset = frame.getWidth() / 2;
+		yOffset = frame.getHeight() / 2;
+	}
+
+	// Frame data stored in string.
+	std::string str = frame.getString();
+
+	// Draw row by row, character by character.
+	for (int y = 0; y < frame.getHeight(); y++)
+	{
+		for (int x = 0; x < frame.getWidth(); x++)
+		{
+			Vector tempPos(worldPos.getX() - xOffset + x,
+				worldPos.getY() - yOffset + y);
+			drawCh(tempPos, str[y * frame.getWidth() + x], color);
+		}
 	}
 
 	return 0;

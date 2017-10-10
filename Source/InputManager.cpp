@@ -1,4 +1,5 @@
 #include "DisplayManager.h"
+#include "LogManager.h"
 
 #include "EventKeyboard.h"
 #include "EventMouse.h"
@@ -25,6 +26,7 @@ int df::InputManager::startUp()
 	sf::RenderWindow *window = DM.getWindow();
 	window->setKeyRepeatEnabled(false);
 
+	LM.writeLog("InputManager::startUp(): Starting up the Input Manager!");
 	Manager::startUp();
 	return 0;
 }

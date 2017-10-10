@@ -56,13 +56,14 @@ void df::GameManager::run()
 	while (!m_gameOver)
 	{
 		clock.delta();
-		LM.writeLog("\nGameManager::run(): Running Game Loop number %d.", m_loopCount);
+		//LM.writeLog("\nGameManager::run(): Running Game Loop number %d.", m_loopCount);
 		IM.getInput();
 
 		// Send step event to all objects.
 		EventStep step(m_loopCount);
 		onEvent(&step);
 
+#ifdef DEBUG_TEST_OBJECT
 		// Remove Objects after a few loops.
 		ObjectList allObjects = WM.getAllObjects();
 		ObjectListIterator iter(&allObjects);
@@ -78,12 +79,16 @@ void df::GameManager::run()
 				setGameOver();
 			}
 		}
+#endif
 
 		WM.update();
 		WM.draw();
 		DM.swapBuffers();
 		long loopTime = clock.split() / 1000; // Convert from microseconds to milliseconds.
-		Sleep(m_frameTime - loopTime);
+		if (loopTime < m_frameTime)
+		{
+			Sleep(m_frameTime - loopTime);
+		}
 		m_loopCount++;
 	}
 	LM.writeLog("\nGameManager::run(): Game Over after %d loops.", m_loopCount - 1);
