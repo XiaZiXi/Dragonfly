@@ -158,11 +158,13 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClInclude Include="Include\LogManager.h" />
     <ClInclude Include="Include\Manager.h" />
     <ClInclude Include="Include\MouseAction.h" />
+    <ClInclude Include="Include\Music.h" />
     <ClInclude Include="Include\Object.h" />
     <ClInclude Include="Include\ObjectList.h" />
     <ClInclude Include="Include\ObjectListIterator.h" />
     <ClInclude Include="Include\ResourceManager.h" />
     <ClInclude Include="Include\Solidness.h" />
+    <ClInclude Include="Include\Sound.h" />
     <ClInclude Include="Include\Sprite.h" />
     <ClInclude Include="Include\TestBoundaryObject.h" />
     <ClInclude Include="Include\TestObject.h" />
@@ -187,10 +189,12 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClCompile Include="Source\InputManager.cpp" />
     <ClCompile Include="Source\LogManager.cpp" />
     <ClCompile Include="Source\Manager.cpp" />
+    <ClCompile Include="Source\Music.cpp" />
     <ClCompile Include="Source\Object.cpp" />
     <ClCompile Include="Source\ObjectList.cpp" />
     <ClCompile Include="Source\ObjectListIterator.cpp" />
     <ClCompile Include="Source\ResourceManager.cpp" />
+    <ClCompile Include="Source\Sound.cpp" />
     <ClCompile Include="Source\Sprite.cpp" />
     <ClCompile Include="Source\TestBoundaryObject.cpp" />
     <ClCompile Include="Source\TestObject.cpp" />

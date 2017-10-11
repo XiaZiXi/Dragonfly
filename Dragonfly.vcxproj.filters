@@ -40,6 +40,9 @@
     <Filter Include="Header Files\Enums\Object">
       <UniqueIdentifier>{8cc1ad3d-6d39-4e98-9dcb-228c106371a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Audio">
+      <UniqueIdentifier>{3183045a-38b3-4112-a4c2-f2474028a10d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Color.h">
@@ -138,6 +141,12 @@
     <ClInclude Include="Include\Box.h">
       <Filter>Header Files\Object</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Music.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Sound.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Clock.cpp">
@@ -216,6 +225,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Box.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Music.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Sound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

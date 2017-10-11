@@ -176,3 +176,107 @@ df::Sprite *df::ResourceManager::getSprite(std::string label) const
 
 	return NULL; // Sprite not found.
 }
+
+int df::ResourceManager::loadSound(std::string filename, std::string label)
+{
+	if (m_soundCount == MAX_SOUNDS)
+	{
+		LM.writeLog("Sound array full.");
+		return -1;
+	}
+
+	if (m_sound[m_soundCount].loadSound(filename) == -1)
+	{
+		LM.writeLog("Unable to load from file.");
+		return -1;
+	}
+
+	// All set.
+	m_sound[m_soundCount].setLabel(label);
+	m_soundCount++;
+	return 0;
+}
+
+int df::ResourceManager::unloadSound(std::string label)
+{
+	for (int i = 0; i < m_soundCount; i++)
+	{
+		if (m_sound[i].getLabel() == label)
+		{
+			// Scoot over remaining sounds.
+			for (int j = i; j < m_soundCount - 1; j++)
+			{
+				m_sound[j] = m_sound[j + 1];
+			}
+
+			m_soundCount--;
+			return 0;
+		}
+	}
+
+	return -1; // Sound not found.
+}
+
+df::Sound *df::ResourceManager::getSound(std::string label)
+{
+	for (int i = 0; i < m_soundCount; i++)
+	{
+		if (m_sound[i].getLabel() == label)
+		{
+			return (&m_sound[i]);
+		}
+	}
+	return NULL; // Sound not found.
+}
+
+int df::ResourceManager::loadMusic(std::string filename, std::string label)
+{
+	if (label == "")
+	{
+		LM.writeLog("Label cannot be empty stringt.");
+		return -1;
+	}
+
+	if (m_musicCount == MAX_SOUNDS)
+	{
+		LM.writeLog("Music array full.");
+		return -1;
+	}
+
+	if (m_music[m_musicCount].loadMusic(filename) == -1)
+	{
+		LM.writeLog("Unable to load from file.");
+		return -1;
+	}
+
+	// All set.
+	m_music[m_musicCount].setLabel(label);
+	m_musicCount++;
+	return 0;
+}
+
+int df::ResourceManager::unloadMusic(std::string label)
+{
+	for (int i = 0; i < m_musicCount; i++)
+	{
+		if (m_music[i].getLabel() == label)
+		{
+			m_music[i].setLabel("");
+			return 0;
+		}
+	}
+
+	return -1; // Music not found.
+}
+
+df::Music *df::ResourceManager::getMusic(std::string label)
+{
+	for (int i = 0; i < m_musicCount; i++)
+	{
+		if (m_music[i].getLabel() == label)
+		{
+			return (&m_music[i]);
+		}
+	}
+	return NULL; // Music not found.
+}
