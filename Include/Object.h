@@ -6,6 +6,7 @@
 #include "Vector.h"
 #include "Solidness.h"
 #include "Sprite.h"
+#include "Box.h"
 
 namespace df {
 static int uid = 0;
@@ -18,6 +19,7 @@ private:
 	Vector m_direction;			// Direction vector.
 	float m_speed;				// Object speed in direction.
 	Solidness m_solidness;		// Solidness of Object.
+	Box m_box;					// Box for sprite boundary and collisions.
 
 	Sprite *m_p_sprite;			// Sprite associated with object.
 	bool m_spriteCenter;		// True if sprite centered on object.
@@ -73,6 +75,10 @@ public:
 
 	// Get object solidness.
 	Solidness getSolidness() const;
+
+	// Get/Set Object's bounding box.
+	void setBox(Box newBox);
+	Box getBox() const;
 
 	// Set Object Sprite to new one.
 	// If setBox is true, set bounding box to size of Sprite.

@@ -138,6 +138,7 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Box.h" />
     <ClInclude Include="Include\Button.h" />
     <ClInclude Include="Include\Clock.h" />
     <ClInclude Include="Include\Color.h" />
@@ -171,6 +172,7 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClInclude Include="Include\WorldManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Box.cpp" />
     <ClCompile Include="Source\Clock.cpp" />
     <ClCompile Include="Source\DisplayManager.cpp" />
     <ClCompile Include="Source\Event.cpp" />

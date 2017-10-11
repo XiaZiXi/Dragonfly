@@ -8,10 +8,15 @@ namespace df {
 
 class WorldManager : public Manager {
 private:
-	WorldManager();			// Private since a singleton.
+	WorldManager();				// Private since a singleton.
 
-	ObjectList m_updates;	// All Objects in world to update.
-	ObjectList m_deletions;	// All Objects in world to delete.
+	ObjectList m_updates;		// All Objects in world to update.
+	ObjectList m_deletions;		// All Objects in world to delete.
+
+	Box m_boundary;				// World boundary.
+	Box m_view;					// Player view of game world.
+
+	Object *m_p_viewFollowing;	// Object view is following.
 
 public:
 	WorldManager(WorldManager const&) = delete;		// Don't allow copy.
@@ -60,5 +65,22 @@ public:
 	// If Object is Spectral, move ok.
 	// Return - if move ok, else -1 if collision with solid.
 	int moveObject(Object *p_object, Vector where);
+
+	// Get/Set game world boundary.
+	void setBoundary(Box newBoundary);
+	Box getBoundary() const;
+
+	// Get/Set player view of game world.
+	void setView(Box newView);
+	Box getView() const;
+
+	// Set view to center window on position viewPos.
+	// View edge will not go beyond world boundary.
+	void setViewPosition(Vector viewPos);
+
+	// Set view to center window on Object.
+	// Set to NULL to stop following.
+	// If p_newViewFollowing invalid return -1, else return 0.
+	int setViewFollowing(Object *p_newViewFollowing);
 };
 }

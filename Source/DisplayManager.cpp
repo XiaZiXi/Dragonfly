@@ -1,5 +1,7 @@
 #include "LogManager.h"
 
+#include "Utility.h"
+
 #include "DisplayManager.h"
 
 df::DisplayManager::DisplayManager()
@@ -56,7 +58,7 @@ void df::DisplayManager::shutDown()
 	Manager::shutDown();
 }
 
-int df::DisplayManager::drawCh(Vector world_pos, char ch, Color color) const
+int df::DisplayManager::drawCh(Vector worldPos, char ch, Color color) const
 {
 	// Make sure window is allocated.
 	if (m_p_window == NULL)
@@ -64,8 +66,11 @@ int df::DisplayManager::drawCh(Vector world_pos, char ch, Color color) const
 		return -1;
 	}
 
+	// Convert from world position to view position.
+	Vector viewPos = Utility::worldToView(worldPos);
+
 	// Convert spaces (x, y) to pixels (x, y).
-	Vector pixelPos = spacesToPixels(world_pos);
+	Vector pixelPos = spacesToPixels(viewPos);
 
 	// Draw background rectangle since text is "see through" in SFML.
 	static sf::RectangleShape rectangle;

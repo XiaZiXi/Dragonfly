@@ -12,6 +12,8 @@ df::Object::Object()
 	setId(uid);
 	uid++;
 
+	m_box = Box();
+
 	// Add self to game world.
 	WM.insertObject(this);
 }
@@ -111,6 +113,16 @@ int df::Object::setSolidness(Solidness newSolid)
 df::Solidness df::Object::getSolidness() const
 {
 	return m_solidness;
+}
+
+void df::Object::setBox(Box newBox)
+{
+	m_box = newBox;
+}
+
+df::Box df::Object::getBox() const
+{
+	return m_box;
 }
 
 void df::Object::setSprite(Sprite *p_newSprite, bool setBox)
