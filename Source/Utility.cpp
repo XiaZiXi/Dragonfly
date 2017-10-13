@@ -1,3 +1,5 @@
+#include <sstream>
+
 #include "WorldManager.h"
 #include "Utility.h"
 
@@ -11,13 +13,13 @@ bool df::Utility::boxIntersectsBox(Box a, Box b)
 {
 	float aX1 = a.getCorner().getX();
 	float aY1 = a.getCorner().getY();
-	float aX2 = aX1 + a.getWidth();
-	float aY2 = aY1 + a.getHeight();
+	float aX2 = aX1 + a.getHorizontal();
+	float aY2 = aY1 + a.getVertical();
 
 	float bX1 = b.getCorner().getX();
 	float bY1 = b.getCorner().getY();
-	float bX2 = bX1 + b.getWidth();
-	float bY2 = bY1 + b.getHeight();
+	float bX2 = bX1 + b.getHorizontal();
+	float bY2 = bY1 + b.getVertical();
 
 	// Test horizontal overlap (xOverlap).
 	bool xOverlap = (bX1 <= aX1 && aX1 <= bX2) || (aX1 <= bX1 && bX1 <= aX2);
@@ -56,4 +58,20 @@ df::Vector df::Utility::worldToView(Vector worldPos)
 	float viewY = viewOrigin.getY();
 	Vector viewPos(worldPos.getX() - viewX, worldPos.getY() - viewY);
 	return viewPos;
+}
+
+df::Vector df::Utility::viewToWorld(Vector viewPos)
+{
+	Vector viewOrigin = WM.getView().getCorner();
+	float viewX = viewOrigin.getX();
+	float viewY = viewOrigin.getY();
+	Vector worldPos(viewPos.getX() + viewX, viewPos.getY() + viewY);
+	return worldPos;
+}
+
+std::string df::Utility::toString(int i)
+{
+	std::stringstream ss;	// Create stringstream.
+	ss << i;				// Add number to stream.
+	return ss.str();		// Return string with contents of stream.
 }

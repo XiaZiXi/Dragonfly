@@ -5,7 +5,6 @@ df::EventMouse::EventMouse()
 	setType(MOUSE_EVENT);
 	m_mouseAction = UNDEFINED_MOUSE_ACTION;
 	m_mouseButton = Mouse::Button::UNDEFINED_MOUSE_BUTTON;
-	m_mousePos = Vector();
 }
 
 void df::EventMouse::setMouseAction(MouseAction newMouseAction)
@@ -23,7 +22,7 @@ void df::EventMouse::setMouseButton(Mouse::Button newButton)
 	m_mouseButton = newButton;
 }
 
-Mouse::Button df::EventMouse::getMouseButton() const
+df::Mouse::Button df::EventMouse::getMouseButton() const
 {
 	return m_mouseButton;
 }

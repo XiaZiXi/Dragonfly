@@ -48,7 +48,7 @@ int TestObject::eventHandler(const df::Event *p_event)
 		auto keyboardEvent = dynamic_cast<const df::EventKeyboard *>(p_event);
 		if (keyboardEvent)
 		{
-			if (keyboardEvent->getKey() == Keyboard::SPACE && keyboardEvent->getKeyboardAction() == df::KeyboardAction::KEY_PRESSED)
+			if (keyboardEvent->getKey() == df::Keyboard::SPACE && keyboardEvent->getKeyboardAction() == df::KeyboardAction::KEY_PRESSED)
 			{
 				WM.moveObject(this, df::Vector(getPosition().getX(), getPosition().getY() + 1));
 			}
@@ -60,7 +60,7 @@ int TestObject::eventHandler(const df::Event *p_event)
 		auto mouseEvent = dynamic_cast<const df::EventMouse *>(p_event);
 		if (mouseEvent)
 		{
-			if (mouseEvent->getMouseButton() == Mouse::LEFT && mouseEvent->getMouseAction() == df::MouseAction::CLICKED)
+			if (mouseEvent->getMouseButton() == df::Mouse::LEFT && mouseEvent->getMouseAction() == df::MouseAction::CLICKED)
 			{
 				WM.moveObject(this, df::Vector(getPosition().getX(), getPosition().getY() - 1));
 			}

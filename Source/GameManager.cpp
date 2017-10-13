@@ -33,6 +33,10 @@ int df::GameManager::startUp()
 	DM.startUp();
 	IM.startUp();
 
+	Box defaultBounds(Vector(), DM.getHorizontal(), DM.getVertical());
+	WM.setBoundary(defaultBounds);
+	WM.setView(defaultBounds);
+
 	timeBeginPeriod(1);
 	return 0;
 }

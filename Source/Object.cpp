@@ -7,12 +7,18 @@
 df::Object::Object()
 {
 	setSolidness(Solidness::HARD); // By default objects are HARD.
+
 	m_position = Vector(0, 0);
+
 	// Sets the unique id.
 	setId(uid);
 	uid++;
 
+	m_altitude = MAX_ALTITUDE / 2;
+
 	m_box = Box();
+
+	m_spriteCenter = true;
 
 	// Add self to game world.
 	WM.insertObject(this);
@@ -115,6 +121,22 @@ df::Solidness df::Object::getSolidness() const
 	return m_solidness;
 }
 
+int df::Object::setAltitude(int newAltitude)
+{
+	if (newAltitude < 0 || newAltitude > MAX_ALTITUDE)
+	{
+		return -1;
+	}
+	
+	m_altitude = newAltitude;
+	return 0;
+}
+
+int df::Object::getAltitude() const
+{
+	return m_altitude;
+}
+
 void df::Object::setBox(Box newBox)
 {
 	m_box = newBox;
@@ -128,6 +150,22 @@ df::Box df::Object::getBox() const
 void df::Object::setSprite(Sprite *p_newSprite, bool setBox)
 {
 	m_p_sprite = p_newSprite;
+
+	if (setBox)
+	{
+		Box tempBox = Box();
+		tempBox.setHorizontal(m_p_sprite->getWidth());
+		tempBox.setVertical(m_p_sprite->getHeight());
+
+		Vector corner = Vector();
+		if (m_spriteCenter)
+		{
+			corner.setXY(-tempBox.getHorizontal() / 2, -tempBox.getVertical() / 2);
+		}
+		m_box = tempBox;
+		//LM.writeLog("Object::setSprite(): Setting collision box of: %s to (%d, %d) with width: %d, and height: %d.",
+		//	getType().c_str(), m_box.getCorner().getX(), m_box.getCorner().getY(), m_box.getHorizontal(), m_box.getVertical());
+	}
 }
 
 df::Sprite *df::Object::getSprite() const

@@ -33,7 +33,7 @@ int TestVelocityObject::eventHandler(const df::Event *p_event)
 		auto keyboardEvent = dynamic_cast<const df::EventKeyboard *>(p_event);
 		if (keyboardEvent)
 		{
-			if (keyboardEvent->getKey() == Keyboard::SPACE && keyboardEvent->getKeyboardAction() == df::KeyboardAction::KEY_PRESSED)
+			if (keyboardEvent->getKey() == df::Keyboard::SPACE && keyboardEvent->getKeyboardAction() == df::KeyboardAction::KEY_PRESSED)
 			{
 				df::Vector currentVel = getVelocity();
 				setVelocity(df::Vector(currentVel.getX(), currentVel.getY() * -1));
@@ -45,7 +45,7 @@ int TestVelocityObject::eventHandler(const df::Event *p_event)
 		auto mouseEvent = dynamic_cast<const df::EventMouse *>(p_event);
 		if (mouseEvent)
 		{
-			if (mouseEvent->getMouseButton() == Mouse::LEFT && mouseEvent->getMouseAction() == df::MouseAction::CLICKED)
+			if (mouseEvent->getMouseButton() == df::Mouse::LEFT && mouseEvent->getMouseAction() == df::MouseAction::CLICKED)
 			{
 				df::Vector currentVel = getVelocity();
 				setVelocity(df::Vector(currentVel.getX() * -1, currentVel.getY()));

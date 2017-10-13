@@ -1,6 +1,7 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 
+namespace df {
 namespace Mouse {
 
 // Set of mouse buttons recognized by Dragonfly.
@@ -16,4 +17,5 @@ static std::vector<Button> buttons = {
 	RIGHT,
 	MIDDLE
 };
+}
 }

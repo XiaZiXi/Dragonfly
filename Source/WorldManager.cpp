@@ -4,6 +4,7 @@
 #include "Utility.h"
 #include "EventCollision.h"
 #include "EventOut.h"
+#include "ViewObject.h"
 
 #include "WorldManager.h"
 
@@ -115,18 +116,23 @@ int df::WorldManager::markForDelete(Object *p_obj)
 
 void df::WorldManager::draw()
 {
-	ObjectListIterator iter(&m_updates);
-	for (iter.first(); !iter.isDone(); iter.next())
+	for (int alt = 0; alt <= MAX_ALTITUDE; alt++)
 	{
-		Object *p_tempObj = iter.currentObject();
-
-		// Bounding box coordinates are relative to Object, so convert to world coordinates.
-		Box tempBox = Utility::getWorldBox(p_tempObj);
-
-		// Only draw if Object wouls be visible on window (intersects view).
-		if (Utility::boxIntersectsBox(tempBox, m_view))
+		ObjectListIterator iter(&m_updates);
+		for (iter.first(); !iter.isDone(); iter.next())
 		{
-			p_tempObj->draw();
+			Object *p_tempObj = iter.currentObject();
+			if (p_tempObj->getAltitude() == alt)
+			{
+				// Bounding box coordinates are relative to Object, so convert to world coordinates.
+				Box tempBox = Utility::getWorldBox(p_tempObj);
+
+				// Only draw if Object wouls be visible on window (intersects view) or if is a ViewObject.
+				if (Utility::boxIntersectsBox(tempBox, m_view) || dynamic_cast<ViewObject *>(p_tempObj))
+				{
+					p_tempObj->draw();
+				}
+			}
 		}
 	}
 }
@@ -179,6 +185,7 @@ int df::WorldManager::moveObject(Object *p_object, Vector where)
 				EventCollision collision(p_object, p_tempObj, where);
 
 				// Send to both objects.
+				LM.writeLog("WorldManager::moveObject(): Collision Event sent: %s, %s", p_object->getType().c_str(), p_tempObj->getType().c_str());
 				p_object->eventHandler(&collision);
 				p_tempObj->eventHandler(&collision);
 
@@ -196,7 +203,6 @@ int df::WorldManager::moveObject(Object *p_object, Vector where)
 			}
 		}
 	}
-	Vector originalPos = p_object->getPosition();
 
 	Box originalBox = Utility::getWorldBox(p_object);	// Original bounding box.
 	p_object->setPosition(where);						// Move object.
@@ -210,7 +216,6 @@ int df::WorldManager::moveObject(Object *p_object, Vector where)
 		// Generate out of bounds event and send to Object.
 		EventOut out = EventOut();
 		p_object->eventHandler(&out);
-		LM.writeLog("WorldManager::moveObject(): Out Event sent.");
 	}
 
 	// If view is following this object, adjust view.
@@ -245,10 +250,10 @@ df::Box df::WorldManager::getView() const
 void df::WorldManager::setViewPosition(Vector viewPos)
 {
 	// Make sure horizontal not out of world boundary.
-	float x = viewPos.getX() - m_view.getWidth() / 2;
-	if (x + m_view.getWidth() > m_boundary.getWidth())
+	float x = viewPos.getX() - m_view.getHorizontal() / 2;
+	if (x + m_view.getHorizontal() > m_boundary.getHorizontal())
 	{
-		x = m_boundary.getWidth() - m_view.getWidth();
+		x = m_boundary.getHorizontal() - m_view.getHorizontal();
 	}
 	if (x < 0)
 	{
@@ -256,10 +261,10 @@ void df::WorldManager::setViewPosition(Vector viewPos)
 	}
 
 	// Make sure vertical not out of world boundary.
-	float y = viewPos.getY() - m_view.getHeight() / 2;
-	if (y + m_view.getHeight() > m_boundary.getHeight())
+	float y = viewPos.getY() - m_view.getVertical() / 2;
+	if (y + m_view.getVertical() > m_boundary.getVertical())
 	{
-		y = m_boundary.getHeight() - m_view.getHeight();
+		y = m_boundary.getVertical() - m_view.getVertical();
 	}
 	if (y < 0)
 	{

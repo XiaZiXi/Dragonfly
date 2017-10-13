@@ -24,22 +24,22 @@ df::Vector df::Box::getCorner() const
 	return m_corner;
 }
 
-void df::Box::setWidth(float newWidth)
+void df::Box::setHorizontal(float newWidth)
 {
 	m_width = newWidth;
 }
 
-float df::Box::getWidth() const
+float df::Box::getHorizontal() const
 {
 	return m_width;
 }
 
-void df::Box::setHeight(float newHeight)
+void df::Box::setVertical(float newHeight)
 {
 	m_height = newHeight;
 }
 
-float df::Box::getHeight() const
+float df::Box::getVertical() const
 {
 	return m_height;
 }

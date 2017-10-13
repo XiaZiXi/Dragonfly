@@ -25,11 +25,11 @@ int TestBoundaryObject::eventHandler(const df::Event *p_event)
 		auto keyboardEvent = dynamic_cast<const df::EventKeyboard *>(p_event);
 		if (keyboardEvent)
 		{
-			if (keyboardEvent->getKey() == Keyboard::W && keyboardEvent->getKeyboardAction() == df::KeyboardAction::KEY_PRESSED)
+			if (keyboardEvent->getKey() == df::Keyboard::W && keyboardEvent->getKeyboardAction() == df::KeyboardAction::KEY_PRESSED)
 			{
 				WM.moveObject(this, df::Vector(getPosition().getX(), getPosition().getY() + 1));
 			}
-			if (keyboardEvent->getKey() == Keyboard::S && keyboardEvent->getKeyboardAction() == df::KeyboardAction::KEY_PRESSED)
+			if (keyboardEvent->getKey() == df::Keyboard::S && keyboardEvent->getKeyboardAction() == df::KeyboardAction::KEY_PRESSED)
 			{
 				WM.moveObject(this, df::Vector(getPosition().getX(), getPosition().getY() - 1));
 			}

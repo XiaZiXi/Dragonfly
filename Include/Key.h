@@ -1,6 +1,7 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 
+namespace df {
 namespace Keyboard {
 	
 // Set of keys Dragonfly recognizes.
@@ -144,4 +145,5 @@ static std::vector<Key> keys = {
 	NUM9,
 	NUM0
 };
+}
 }

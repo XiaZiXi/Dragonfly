@@ -37,6 +37,7 @@ int df::DisplayManager::startUp()
 
 	// Turn off mouse cursor for window.
 	m_p_window->setMouseCursorVisible(false);
+	m_p_window->setMouseCursorGrabbed(true);
 
 	// Synchronize refresh rate with monitor.
 	m_p_window->setVerticalSyncEnabled(true);
@@ -72,6 +73,7 @@ int df::DisplayManager::drawCh(Vector worldPos, char ch, Color color) const
 	// Convert spaces (x, y) to pixels (x, y).
 	Vector pixelPos = spacesToPixels(viewPos);
 
+	/*
 	// Draw background rectangle since text is "see through" in SFML.
 	static sf::RectangleShape rectangle;
 	rectangle.setSize(sf::Vector2f(charWidth(), charHeight()));
@@ -80,6 +82,7 @@ int df::DisplayManager::drawCh(Vector worldPos, char ch, Color color) const
 		pixelPos.getX() - charWidth() / 10,
 		pixelPos.getY() + charHeight() / 5);
 	m_p_window->draw(rectangle);
+	*/
 
 	// Create character text to draw.
 	static sf::Text text("", m_font);

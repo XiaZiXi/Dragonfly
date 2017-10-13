@@ -12,7 +12,7 @@ void df::EventKeyboard::setKey(Keyboard::Key newKey)
 	m_keyVal = newKey;
 }
 
-Keyboard::Key df::EventKeyboard::getKey() const
+df::Keyboard::Key df::EventKeyboard::getKey() const
 {
 	return m_keyVal;
 }

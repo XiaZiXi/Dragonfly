@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "LogManager.h"
 
 namespace df {
 // Colors Dragonfly recognizes.
@@ -44,6 +45,47 @@ public:
 			return sf::Color::White;
 		default:
 			return convertToSFML(COLOR_DEFAULT);
+		}
+	}
+
+	static df::Color stringToColor(std::string string)
+	{
+		if (string == "black")
+		{
+			return BLACK;
+		}
+		else if (string == "red")
+		{
+			return RED;
+		}
+		else if (string == "green")
+		{
+			return GREEN;
+		}
+		else if (string == "yellow")
+		{
+			return YELLOW;
+		}
+		else if (string == "blue")
+		{
+			return BLUE;
+		}
+		else if (string == "magenta")
+		{
+			return MAGENTA;
+		}
+		else if (string == "cyan")
+		{
+			return CYAN;
+		}
+		else if (string == "white")
+		{
+			return WHITE;
+		}
+		else
+		{
+			LM.writeLog("ColorHelper::stringToColor(): Could not match string: %s. Using default color.", string.c_str());
+			return COLOR_DEFAULT;
 		}
 	}
 };

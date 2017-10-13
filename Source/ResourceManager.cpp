@@ -72,7 +72,7 @@ df::Frame df::ResourceManager::readFrame(std::ifstream *p_file, int *p_lineNum, 
 		std::getline(*p_file, line);
 		if (line.length() != width)
 		{
-			LM.writeLog("ResourceManager::readFrame(): ERROR! Incorrect width.");
+			LM.writeLog("ResourceManager::readFrame(): ERROR! Incorrect width.\nLine:%s\t With: %d", line.c_str(), width);
 			return Frame();
 		}
 		(*p_lineNum)++;
@@ -116,6 +116,7 @@ int df::ResourceManager::loadSprite(std::string filename, std::string label)
 	int frames = readLineInt(&file, &lineNum, FRAMES_TOKEN.c_str());
 	int width = readLineInt(&file, &lineNum, WIDTH_TOKEN.c_str());
 	int height = readLineInt(&file, &lineNum, HEIGHT_TOKEN.c_str());
+	std::string color = readLineStr(&file, &lineNum, COLOR_TOKEN.c_str());
 
 	// Check if the header returned reasonable values.
 	if (frames == -1 || width == -1 || height == -1)
@@ -135,6 +136,9 @@ int df::ResourceManager::loadSprite(std::string filename, std::string label)
 	file.close();
 
 	p_sprite->setLabel(label);
+	p_sprite->setWidth(width);
+	p_sprite->setHeight(height);
+	p_sprite->setColor(df::ColorHelper::stringToColor(color));
 
 	// Add sprite to sprite array.
 	m_p_sprite[m_spriteCount] = p_sprite;

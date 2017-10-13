@@ -70,7 +70,7 @@ void df::InputManager::getInput()
 		{
 			EventMouse mouse = EventMouse();
 			mouse.setMouseAction(MouseAction::MOVED);
-			mouse.setMousePosition(Vector(event.mouseMove.x, event.mouseMove.y));
+			mouse.setMousePosition(DM.pixelsToSpaces(Vector(event.mouseMove.x, event.mouseMove.y)));
 			onEvent(&mouse);
 		}
 
@@ -80,6 +80,7 @@ void df::InputManager::getInput()
 			EventMouse mouse = EventMouse();
 			mouse.setMouseButton(Mouse::Button(event.mouseButton.button));
 			mouse.setMouseAction(MouseAction::CLICKED);
+			mouse.setMousePosition(DM.pixelsToSpaces(Vector(event.mouseButton.x, event.mouseButton.y)));
 			onEvent(&mouse);
 		}
 	}

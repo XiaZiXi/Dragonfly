@@ -22,5 +22,11 @@ public:
 
 	// Convert world position to view position.
 	static Vector worldToView(Vector worldPos);
+
+	// Convert view position to world position.
+	static Vector viewToWorld(Vector viewPos);
+
+	// Convert int to a string, returning string.
+	static std::string toString(int i);
 };
 }

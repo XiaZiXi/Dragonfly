@@ -89,7 +89,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\SFML-2.4.2\include;%(AdditionalIncludeDirectories);.\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\SFML-2.4.2\include;%(AdditionalIncludeDirectories);.\Include;.\Include\Saucer Shoot</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-network-d.lib;sfml-audio-d.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -149,6 +149,7 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClInclude Include="Include\EventMouse.h" />
     <ClInclude Include="Include\EventOut.h" />
     <ClInclude Include="Include\EventStep.h" />
+    <ClInclude Include="Include\EventView.h" />
     <ClInclude Include="Include\Frame.h" />
     <ClInclude Include="Include\GameManager.h" />
     <ClInclude Include="Include\InputManager.h" />
@@ -163,6 +164,16 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClInclude Include="Include\ObjectList.h" />
     <ClInclude Include="Include\ObjectListIterator.h" />
     <ClInclude Include="Include\ResourceManager.h" />
+    <ClInclude Include="Include\Saucer Shoot\Bullet.h" />
+    <ClInclude Include="Include\Saucer Shoot\EventNuke.h" />
+    <ClInclude Include="Include\Saucer Shoot\Explosion.h" />
+    <ClInclude Include="Include\Saucer Shoot\GameOver.h" />
+    <ClInclude Include="Include\Saucer Shoot\GameStart.h" />
+    <ClInclude Include="Include\Saucer Shoot\Hero.h" />
+    <ClInclude Include="Include\Saucer Shoot\Points.h" />
+    <ClInclude Include="Include\Saucer Shoot\Reticle.h" />
+    <ClInclude Include="Include\Saucer Shoot\Saucer.h" />
+    <ClInclude Include="Include\Saucer Shoot\Star.h" />
     <ClInclude Include="Include\Solidness.h" />
     <ClInclude Include="Include\Sound.h" />
     <ClInclude Include="Include\Sprite.h" />
@@ -171,6 +182,8 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClInclude Include="Include\TestVelocityObject.h" />
     <ClInclude Include="Include\Utility.h" />
     <ClInclude Include="Include\Vector.h" />
+    <ClInclude Include="Include\ViewObject.h" />
+    <ClInclude Include="Include\ViewObjectLocation.h" />
     <ClInclude Include="Include\WorldManager.h" />
   </ItemGroup>
   <ItemGroup>
@@ -183,8 +196,8 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClCompile Include="Source\EventMouse.cpp" />
     <ClCompile Include="Source\EventOut.cpp" />
     <ClCompile Include="Source\EventStep.cpp" />
+    <ClCompile Include="Source\EventView.cpp" />
     <ClCompile Include="Source\Frame.cpp" />
-    <ClCompile Include="Source\game.cpp" />
     <ClCompile Include="Source\GameManager.cpp" />
     <ClCompile Include="Source\InputManager.cpp" />
     <ClCompile Include="Source\LogManager.cpp" />
@@ -194,6 +207,17 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClCompile Include="Source\ObjectList.cpp" />
     <ClCompile Include="Source\ObjectListIterator.cpp" />
     <ClCompile Include="Source\ResourceManager.cpp" />
+    <ClCompile Include="Source\Saucer Shoot\Bullet.cpp" />
+    <ClCompile Include="Source\Saucer Shoot\EventNuke.cpp" />
+    <ClCompile Include="Source\Saucer Shoot\Explosion.cpp" />
+    <ClCompile Include="Source\Saucer Shoot\game.cpp" />
+    <ClCompile Include="Source\Saucer Shoot\GameOver.cpp" />
+    <ClCompile Include="Source\Saucer Shoot\GameStart.cpp" />
+    <ClCompile Include="Source\Saucer Shoot\Hero.cpp" />
+    <ClCompile Include="Source\Saucer Shoot\Points.cpp" />
+    <ClCompile Include="Source\Saucer Shoot\Reticle.cpp" />
+    <ClCompile Include="Source\Saucer Shoot\Saucer.cpp" />
+    <ClCompile Include="Source\Saucer Shoot\Star.cpp" />
     <ClCompile Include="Source\Sound.cpp" />
     <ClCompile Include="Source\Sprite.cpp" />
     <ClCompile Include="Source\TestBoundaryObject.cpp" />
@@ -201,6 +225,7 @@ copy /Y "$(SOLUTIONDIR)\df-font.ttf" "$(TARGETDIR)"</Command>
     <ClCompile Include="Source\TestVelocityObject.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
     <ClCompile Include="Source\Vector.cpp" />
+    <ClCompile Include="Source\ViewObject.cpp" />
     <ClCompile Include="Source\WorldManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

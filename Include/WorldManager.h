@@ -4,6 +4,8 @@
 #include "ObjectList.h"
 
 namespace df {
+const int MAX_ALTITUDE = 4;
+
 #define WM df::WorldManager::getInstance()
 
 class WorldManager : public Manager {

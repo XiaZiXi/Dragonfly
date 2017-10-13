@@ -20,11 +20,11 @@ public:
 	Vector getCorner() const;
 
 	// Get/Set Width.
-	void setWidth(float newWidth);
-	float getWidth() const;
+	void setHorizontal(float newWidth);
+	float getHorizontal() const;
 
 	// Get/Set Height.
-	void setHeight(float newHeight);
-	float getHeight() const;
+	void setVertical(float newHeight);
+	float getVertical() const;
 };
 }

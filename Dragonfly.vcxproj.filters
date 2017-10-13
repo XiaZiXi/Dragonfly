@@ -31,9 +31,6 @@
     <Filter Include="Header Files\Enums\Mouse">
       <UniqueIdentifier>{fd25077d-ac5c-40e3-9b40-07aa408863ca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Utility">
-      <UniqueIdentifier>{035bce69-3adb-4f0c-b9c4-bf73e051d7f5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Object">
       <UniqueIdentifier>{578e3646-886e-448b-a012-4bacaed9033d}</UniqueIdentifier>
     </Filter>
@@ -42,6 +39,15 @@
     </Filter>
     <Filter Include="Header Files\Audio">
       <UniqueIdentifier>{3183045a-38b3-4112-a4c2-f2474028a10d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Saucer Shoot">
+      <UniqueIdentifier>{bb4a99cf-3ef0-4592-975f-38a1b8b629a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{035bce69-3adb-4f0c-b9c4-bf73e051d7f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Saucer Shoot">
+      <UniqueIdentifier>{be0643a8-7824-49b5-80bb-f4e6a251667b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +153,45 @@
     <ClInclude Include="Include\Sound.h">
       <Filter>Header Files\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="Include\ViewObject.h">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EventView.h">
+      <Filter>Header Files\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ViewObjectLocation.h">
+      <Filter>Header Files\Enums\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Saucer Shoot\Bullet.h">
+      <Filter>Header Files\Saucer Shoot</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Saucer Shoot\EventNuke.h">
+      <Filter>Header Files\Saucer Shoot</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Saucer Shoot\Explosion.h">
+      <Filter>Header Files\Saucer Shoot</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Saucer Shoot\GameOver.h">
+      <Filter>Header Files\Saucer Shoot</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Saucer Shoot\GameStart.h">
+      <Filter>Header Files\Saucer Shoot</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Saucer Shoot\Hero.h">
+      <Filter>Header Files\Saucer Shoot</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Saucer Shoot\Points.h">
+      <Filter>Header Files\Saucer Shoot</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Saucer Shoot\Reticle.h">
+      <Filter>Header Files\Saucer Shoot</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Saucer Shoot\Saucer.h">
+      <Filter>Header Files\Saucer Shoot</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Saucer Shoot\Star.h">
+      <Filter>Header Files\Saucer Shoot</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Clock.cpp">
@@ -197,9 +242,6 @@
     <ClCompile Include="Source\WorldManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -232,6 +274,45 @@
     </ClCompile>
     <ClCompile Include="Source\Sound.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EventView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ViewObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Saucer Shoot\Bullet.cpp">
+      <Filter>Source Files\Saucer Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Saucer Shoot\EventNuke.cpp">
+      <Filter>Source Files\Saucer Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Saucer Shoot\Explosion.cpp">
+      <Filter>Source Files\Saucer Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Saucer Shoot\game.cpp">
+      <Filter>Source Files\Saucer Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Saucer Shoot\GameOver.cpp">
+      <Filter>Source Files\Saucer Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Saucer Shoot\GameStart.cpp">
+      <Filter>Source Files\Saucer Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Saucer Shoot\Hero.cpp">
+      <Filter>Source Files\Saucer Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Saucer Shoot\Points.cpp">
+      <Filter>Source Files\Saucer Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Saucer Shoot\Reticle.cpp">
+      <Filter>Source Files\Saucer Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Saucer Shoot\Saucer.cpp">
+      <Filter>Source Files\Saucer Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Saucer Shoot\Star.cpp">
+      <Filter>Source Files\Saucer Shoot</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

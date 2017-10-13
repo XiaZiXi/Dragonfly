@@ -19,6 +19,7 @@ private:
 	Vector m_direction;			// Direction vector.
 	float m_speed;				// Object speed in direction.
 	Solidness m_solidness;		// Solidness of Object.
+	int m_altitude;				// 0 to MAX suppoerted (lower drawn first).
 	Box m_box;					// Box for sprite boundary and collisions.
 
 	Sprite *m_p_sprite;			// Sprite associated with object.
@@ -75,6 +76,10 @@ public:
 
 	// Get object solidness.
 	Solidness getSolidness() const;
+
+	// Get/Set altitude of Object, with checks for range [0, MAX_ALTITUDE].
+	int setAltitude(int newAltitude);
+	int getAltitude() const;
 
 	// Get/Set Object's bounding box.
 	void setBox(Box newBox);
