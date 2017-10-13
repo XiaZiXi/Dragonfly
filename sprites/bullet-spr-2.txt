@@ -1,0 +1,8 @@
+frames 2
+width 3
+height 1
+color blue
+>--
+end
+>-:
+end
